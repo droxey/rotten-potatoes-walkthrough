@@ -14,7 +14,7 @@ app.set("view engine", "handlebars");
 const reviews = require("./controllers/reviews")(app);
 
 app.listen(port, () => {
-  mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/rotten-potatoes");
+  mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/rotten-potatoes");
   console.log("App listening on port 3000!");
 });
 
