@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 mongoose.connect(
   "mongodb://localhost/rotten-potatoes",
-  { useMongoClient: true }
+  {}
 );
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
@@ -21,3 +21,5 @@ const reviews = require("./controllers/reviews")(app);
 app.listen(3000, () => {
   console.log("App listening on port 3000!");
 });
+
+module.exports = app;
