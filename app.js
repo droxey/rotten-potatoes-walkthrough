@@ -8,15 +8,13 @@ const port = process.env.PORT || 3000;
 
 app.use(methodOverride("_method"));
 app.use(bodyParser.urlencoded({ extended: true }));
-
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/rotten-potatoes");
-
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 const reviews = require("./controllers/reviews")(app);
 
 app.listen(port, () => {
+  mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/rotten-potatoes");
   console.log("App listening on port 3000!");
 });
 
